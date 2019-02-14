@@ -107,7 +107,7 @@ int main(int argc, char** argv) {
   free(tokens);
   if (parse) {
     for (i = 0; i < (argc - 2); i++) {
-      if (lexer_errors[i] != 0) {
+      if (lexer_errors[i] == 0) {
         FreeAST (asts[i]);
       }
     }
