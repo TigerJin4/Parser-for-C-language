@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
   bool tokenize = false;
   bool parse = false;
   TokenList** tokens;
+  int lexer_errors[argc - 2];
   char** files = NULL;
   int* boundaries = NULL;
   AST** asts;
@@ -83,7 +84,6 @@ int main(int argc, char** argv) {
     if (asts == NULL) {
       allocation_failed();
     }
-    lexer_errors[argc - 2];
     for (i = 0; i < (argc - 2); i++) {
       /* Only attempt to parse files with no lexing errors. */
       lexer_errors[i] = DisplayErrors(tokens[i]);
