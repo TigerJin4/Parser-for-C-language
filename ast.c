@@ -9,8 +9,16 @@
    terminates.
 */
 AST* MakeAST(enum NodeType type, char* filename, int linenum) {
+  AST *ast = (AST*)malloc(sizeof(AST*));
+  ast->type = type;
+  ast->capacity = INITIAL_CAPACITY;
+  ast->filename = filename;
+  ast->linenum = linenum;
+
+  ast->size = 0;
+  ast->children = (AST**)malloc(sizeof(AST*) * ast->capacity);
   /* YOUR CODE HERE. */
-  return NULL;
+  return ast;
 }
 
 /*
@@ -55,6 +63,9 @@ AST* CopyAST(AST* original) {
    of tree.
 */
 void AppendAST(AST* tree, AST* node) {
+  tree->size += 1;
+  tree->children = (AST**)realloc(tree->children, sizeof(AST*) * tree->capacity);
+  tree->children[tree->size - 1] = node;
   /* YOUR CODE HERE */
 }
 
@@ -62,6 +73,8 @@ void AppendAST(AST* tree, AST* node) {
    Frees the memory allocated by a single AST node.
 */
 void FreeNode(AST* ast) {
+  free(ast->children);
+  free(ast);
   /* YOUR CODE HERE */
 }
 
@@ -69,5 +82,12 @@ void FreeNode(AST* ast) {
    Frees all the memory allocated by an AST.
 */
 void FreeAST(AST* ast) {
+  if (ast->children == NULL){
+    FreeNode(ast);
+  } else {
+    for (int i = 0; ast->children[i] == NULL; i++){
+      FreeAST(ast->children[i]);
+    }
+  }
   /* YOUR CODE HERE */
 }
