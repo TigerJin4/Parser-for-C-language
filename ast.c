@@ -85,13 +85,13 @@ void FreeNode(AST* ast) {
   free(ast->filename);
     switch (ast->type) {
         case NODETYPE_ID:
-            free(t->data.identifier);
+            free(ast->data.identifier);
             break;
         case NODETYPE_CONSTANT_STRING:
-            free(t->data.string);
+            free(ast->data.string);
             break;
         case NODETYPE_ERR:
-            free(t->data.error);
+            free(ast->data.error);
             break;
         default:;
     }
