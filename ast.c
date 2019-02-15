@@ -71,7 +71,7 @@ void AppendAST(AST* tree, AST* node) {
     tree->capacity += INITIAL_CAPACITY;
     tree->children = (AST**)realloc(tree->children, sizeof(AST*) * tree->capacity);
   } else {
-    tree->children = (AST **) realloc(tree->children, sizeof(AST *) * tree->size);
+    tree->children = (AST**)realloc(tree->children, sizeof(AST *) * tree->size);
   }
   tree->children[tree->size - 1] = node;
   /* YOUR CODE HERE */
@@ -83,7 +83,9 @@ void AppendAST(AST* tree, AST* node) {
 void FreeNode(AST* ast) {
   free(ast->children);
   free(ast->filename);
+  free(ast->data);
   free(ast);
+
   /* YOUR CODE HERE */
 }
 
@@ -100,6 +102,7 @@ void FreeAST(AST* ast) {
       }
     free(ast);
     free(ast->children);
+    free(ast->data);
   }
   /* YOUR CODE HERE */
 }
