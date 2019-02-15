@@ -83,7 +83,18 @@ void AppendAST(AST* tree, AST* node) {
 void FreeNode(AST* ast) {
   free(ast->children);
   free(ast->filename);
-  free(ast->data);
+    switch (ast->type) {
+        case TOKEN_IDENTIFIER:
+            free(t->data.identifier);
+            break;
+        case TOKEN_STRING:
+            free(t->data.string);
+            break;
+        case TOKEN_ERR:
+            free(t->data.error);
+            break;
+        default:;
+    }
   free(ast);
 
   /* YOUR CODE HERE */
@@ -102,7 +113,18 @@ void FreeAST(AST* ast) {
       }
     free(ast);
     free(ast->children);
-    free(ast->data);
+      switch (ast->type) {
+          case NODETYPE_ID:
+              free(ast->data.identifier);
+              break;
+          case NODETYPE_CONSTANT_STRING:
+              free(ast->data.string);
+              break;
+          case NODETYPE_ERR:
+              free(ast->data.error);
+              break;
+          default:;
+      }
   }
   /* YOUR CODE HERE */
 }
