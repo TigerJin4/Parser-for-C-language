@@ -90,9 +90,6 @@ void FreeNode(AST* ast) {
         case NODETYPE_CONSTANT_STRING:
             free(ast->data.string);
             break;
-        case NODETYPE_ERR:
-            free(ast->data.error);
-            break;
         default:;
     }
   free(ast);
@@ -119,9 +116,6 @@ void FreeAST(AST* ast) {
               break;
           case NODETYPE_CONSTANT_STRING:
               free(ast->data.string);
-              break;
-          case NODETYPE_ERR:
-              free(ast->data.error);
               break;
           default:;
       }
