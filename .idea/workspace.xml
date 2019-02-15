@@ -9,9 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="343cb592-10f4-4d38-b540-9bf237612837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ast.c" beforeDir="false" afterPath="$PROJECT_DIR$/ast.c" afterDir="false" />
-    </list>
+    <list default="true" id="343cb592-10f4-4d38-b540-9bf237612837" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,12 +116,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550081344176</updated>
-      <workItem from="1550081347275" duration="10753000" />
+      <workItem from="1550081347275" duration="10814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10753000" />
+    <option name="totallyTimeSpent" value="10814000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1400" height="772" extended-state="0" />
