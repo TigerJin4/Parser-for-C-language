@@ -9,12 +9,15 @@
    terminates.
 */
 AST* MakeAST(enum NodeType type, char* filename, int linenum) {
-  AST *ast = (AST*)malloc(sizeof(AST*));
+  AST* ast = (AST*)malloc(sizeof(AST));
   ast->type = type;
   ast->capacity = INITIAL_CAPACITY;
-  ast->filename = filename;
+  ast->filename = (char*)malloc(sizeof(char) * (strlen(filename) + 1));
+  if (ast->filename == NULL) {
+    allocation_failed();
+  }
+  strcpy(ast->filename, filename);
   ast->linenum = linenum;
-
   ast->size = 0;
   ast->children = (AST**)malloc(sizeof(AST*) * ast->capacity);
   /* YOUR CODE HERE. */
@@ -64,7 +67,12 @@ AST* CopyAST(AST* original) {
 */
 void AppendAST(AST* tree, AST* node) {
   tree->size += 1;
-  tree->children = (AST**)realloc(tree->children, sizeof(AST*) * tree->capacity);
+  if (tree->size == tree->capacity){
+    tree->capacity += INITIAL_CAPACITY;
+    tree->children = (AST**)realloc(tree->children, sizeof(AST*) * tree->capacity);
+  } else {
+    tree->children = (AST **) realloc(tree->children, sizeof(AST *) * tree->size);
+  }
   tree->children[tree->size - 1] = node;
   /* YOUR CODE HERE */
 }
@@ -74,6 +82,7 @@ void AppendAST(AST* tree, AST* node) {
 */
 void FreeNode(AST* ast) {
   free(ast->children);
+  free(ast->filename);
   free(ast);
   /* YOUR CODE HERE */
 }
@@ -85,9 +94,12 @@ void FreeAST(AST* ast) {
   if (ast->children == NULL){
     FreeNode(ast);
   } else {
-    for (int i = 0; ast->children[i] == NULL; i++){
-      FreeAST(ast->children[i]);
-    }
+      free(ast->filename);
+      for (int i = 0; i < ast->size; i++) {
+          FreeAST(ast->children[i]);
+      }
+    free(ast);
+    free(ast->children);
   }
   /* YOUR CODE HERE */
 }
