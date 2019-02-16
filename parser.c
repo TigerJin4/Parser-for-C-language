@@ -1452,14 +1452,14 @@ AST* BinaryExpr(TokenList** tokens,
     int counter = 0;
     for (int i = 0; i < size; i++) {
       if (ProcessToken(tokens, possible_tokens[i])) {
-        count++;
+        counter++;
         AST *ast = MakeAST(ast_choice[i], (*tokens)->t->filename, (*tokens)->t->linenum);
         AppendAST(ast, first_ast);
         AppendAST(ast, getNextBinaryExpr(tokens, type));
         first_ast = ast;
       }
     }
-    if (count == 0) {
+    if (counter == 0) {
       return first_ast;
     }
 //  for (int i = 0; i < size; i++) {
