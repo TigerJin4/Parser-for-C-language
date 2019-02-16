@@ -1458,6 +1458,7 @@ AST* BinaryExpr(TokenList** tokens,
                            (*tokens)->t->linenum);
         AppendAST(nextast, ast);
         AppendAST(nextast, GetNextBinaryExpr(tokens, type));
+        printf('%d\n', size);
         return nextast;
       }
       return ast;

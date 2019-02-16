@@ -42,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="1458" column="32" lean-forward="true" selection-start-line="1458" selection-start-column="32" selection-end-line="1458" selection-end-column="32" />
+            <state relative-caret-position="469">
+              <caret line="1460" column="29" selection-start-line="1460" selection-start-column="29" selection-end-line="1460" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -120,9 +120,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-340" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
-    <option name="height" value="812" />
+    <option name="height" value="811" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -186,15 +187,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550081344176</updated>
-      <workItem from="1550081347275" duration="21183000" />
+      <workItem from="1550081347275" duration="21529000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21183000" />
+    <option name="totallyTimeSpent" value="21529000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1400" height="812" extended-state="0" />
+    <frame x="-340" y="23" width="1400" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -204,7 +205,7 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="CMake" visible="true" weight="0.041666668" />
+      <window_info anchor="bottom" id="CMake" visible="true" weight="0.04172462" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -260,20 +261,6 @@
     <entry file="file://$PROJECT_DIR$/parser-errors.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser-errors.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="102" column="12" lean-forward="true" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ast.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parser-helpers.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
@@ -288,10 +275,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parser-errors.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="102" column="12" lean-forward="true" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ast.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parser.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="1458" column="32" lean-forward="true" selection-start-line="1458" selection-start-column="32" selection-end-line="1458" selection-end-column="32" />
+        <state relative-caret-position="469">
+          <caret line="1460" column="29" selection-start-line="1460" selection-start-column="29" selection-end-line="1460" selection-end-column="29" />
         </state>
       </provider>
     </entry>
