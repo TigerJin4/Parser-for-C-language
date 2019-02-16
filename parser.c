@@ -1464,6 +1464,28 @@ AST* BinaryExpr(TokenList** tokens,
   Binary Expression passed in.
 */
 AST* GetNextBinaryExpr(TokenList** tokens, enum BinaryExprType type) {
+  switch (type) {
+    case BINARY_EXPR_MULTDIV:
+      return PrefixExpr(tokens);;
+    case BINARY_EXPR_ADDSUB:
+      return BinaryExprMultDiv(tokens);
+    case BINARY_EXPR_COMPARISON:
+      return BinaryExprAddSub(tokens);
+    case BINARY_EXPR_EQUALITY:
+      return BinaryExprComparison(tokens);
+    case BINARY_EXPR_BITWISE_AND:
+      return BinaryExprEquality(tokens);
+    case BINARY_EXPR_BITWISE_XOR:
+      return BinaryExprBitwiseAnd(tokens);
+    case BINARY_EXPR_BITWISE_OR:
+      return BinaryExprBitwiseXor(tokens);
+    case BINARY_EXPR_LOGICAL_AND:
+      return BinaryExprBitwiseOr(tokens);
+    case BINARY_EXPR_LOGICAL_OR:
+      return BinaryExprLogicalAnd(tokens);
+    default:;
+  }
+
   /* FIX ME */
   return BaseExpr(tokens);
 }
