@@ -1,0 +1,55 @@
+struct DAST *ConvertAST (struct AST *ast, int count) {
+  struct DAST *dast = (struct DAST *) malloc (sizeof (DAST));
+  if (dast == NULL) {
+    allocation_failed ();
+  }
+
+  // Copy over any fields that do not require allocation
+  dast->type = ast->type;
+  dast->size = ast->size;
+  dast->capacity = ast->capacity;
+  dast->decl = NULL;
+  dast->decl_count = count;
+  dast->linenum = ast->linenum;
+
+  // Copy over the filename
+  dast->filename = (char *) malloc (sizeof (x) * (strlen (ast->filename) + 1));
+  if (dast->filename == NULL) {
+    allocation_failed ();
+  }
+  strcpy (dast->filename, ast->filename);
+
+
+  // Allocate room for all necessary children
+  dast->children = (struct DAST **) malloc (sizeof (x) * dast->capacity);
+  if (dast->children == NULL) {
+    allocation_failed ();
+  }
+
+
+  // Check for any data that needs to be copied over
+  if (dast->type == NODETYPE_CONSTANT_INTEGER) {
+    dast->data.integer = ast->data.integer;
+  } else {
+    if (dast->type == NODETYPE_CONSTANT_CHARACTER) {
+      dast->data.character = ast->data.character;
+    } else {
+      if (dast->type == NODETYPE_CONSTANT_STRING) {
+        dast->data.string = (char *) malloc (sizeof (x) * (strlen (ast->data.string) + 1));
+        if (dast->data.string == NULL) {
+          allocation_failed ();
+        }
+      } else {
+      if (dast->type == NODETYPE_ID) {
+        dast->data.identifier = (char *) malloc (sizeof (x) * (strlen (ast->data.identifier) + 1));
+        if (dast->data.identifier == NULL) {
+          allocation_failed ();
+        }
+       strcpy (dast->data.identifier, ast->data.identifier);
+      }
+  
+    }
+  }
+  }
+  return dast;
+}
