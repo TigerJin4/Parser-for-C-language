@@ -1450,17 +1450,15 @@ AST* BinaryExpr(TokenList** tokens,
   AST* first_ast = GetNextBinaryExpr(tokens, type);
 //  int possible_size = sizeof(possible_tokens)/ sizeof(token);
   for (int i = 0; i < size; i++) {
-    for (int j = 0; j < size; j++) {
-      if (ProcessToken(tokens, possible_tokens[j])) {
+      if (ProcessToken(tokens, possible_tokens[i])) {
         AST *ast = MakeAST(ast_choices[i], (*tokens)->t->filename,
-                         (*tokens)->t->linenum);
+                           (*tokens)->t->linenum);
         AppendAST(ast, first_ast);
-        AppendAST(ast, GetNextBinaryExpr(tokens, type));
+        AppendAST(ast, BinaryExpr(tokens, possible_tokens, size, type));
         //first_ast = ast;
         printf("hi");
         return ast;
       }
-    }
   }
   return first_ast;
 }
