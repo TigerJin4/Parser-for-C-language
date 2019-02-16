@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
   bool tokenize = false;
   bool parse = false;
   TokenList** tokens;
+  int lexer_errors[argc - 2];
   char** files = NULL;
   int* boundaries = NULL;
   AST** asts;
@@ -85,7 +86,8 @@ int main(int argc, char** argv) {
     }
     for (i = 0; i < (argc - 2); i++) {
       /* Only attempt to parse files with no lexing errors. */
-      if (DisplayErrors(tokens[i]) == 0) {
+      lexer_errors[i] = DisplayErrors(tokens[i]);
+      if (lexer_errors[i] == 0) {
         asts[i] = ParseTokens(tokens[i], argv[i + 2]);
         exitcode = exitcode || CheckErrors(asts[i]);
         PrintAST(asts[i]);
@@ -104,8 +106,10 @@ int main(int argc, char** argv) {
   free(boundaries);
   free(tokens);
   if (parse) {
-    for (i = 0; i < (argc - 2); i++) { 
-      FreeAST (asts[i]);
+    for (i = 0; i < (argc - 2); i++) {
+      if (lexer_errors[i] == 0) {
+        FreeAST (asts[i]);
+      }
     }
     free (asts);
   }
