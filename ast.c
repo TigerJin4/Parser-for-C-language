@@ -108,7 +108,6 @@ void FreeAST(AST* ast) {
       for (int i = 0; i < ast->size; i++) {
           FreeAST(ast->children[i]);
       }
-    free(ast);
     free(ast->children);
       switch (ast->type) {
           case NODETYPE_ID:
@@ -119,6 +118,7 @@ void FreeAST(AST* ast) {
               break;
           default:;
       }
+      free(ast);
   }
   /* YOUR CODE HERE */
 }
