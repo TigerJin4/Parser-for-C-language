@@ -1447,15 +1447,18 @@ AST* BinaryExpr(TokenList** tokens,
                 enum BinaryExprType type) {
   /* FIX ME */
   AST* first_ast = GetNextBinaryExpr(tokens, type);
+//  int possible_size = sizeof(possible_tokens)/ sizeof(token);
   for (int i = 0; i < size; i++) {
-    if (ProcessToken(tokens, possible_tokens[i])) {
-      AST* ast = MakeAST(ast_choices[i], (*tokens)->t->filename,
+    for (int j = 0; j < size; j++) {
+      if (ProcessToken(tokens, possible_tokens[j])) {
+        AST *ast = MakeAST(ast_choices[i], (*tokens)->t->filename,
                          (*tokens)->t->linenum);
-      AppendAST(ast, first_ast);
-      AppendAST(ast, GetNextBinaryExpr(tokens, type));
-      first_ast = ast;
+        AppendAST(ast, first_ast);
+        AppendAST(ast, GetNextBinaryExpr(tokens, type));
+        first_ast = ast;
       //return ast;
       }
+    }
   }
   return first_ast;
 }
