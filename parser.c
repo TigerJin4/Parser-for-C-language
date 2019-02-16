@@ -1497,7 +1497,8 @@ AST* GetNextBinaryExpr(TokenList** tokens, enum BinaryExprType type) {
     case BINARY_EXPR_LOGICAL_OR:
       return BinaryExprLogicalAnd(tokens);
     default:
-      return BinaryExprLogicalOr(tokens);
+      return NULL;
+      //return BinaryExprLogicalOr(tokens);
   }
 
   /* FIX ME */

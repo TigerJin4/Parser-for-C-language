@@ -97,12 +97,24 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
     fprintf(stderr, "illegal break or continue point: outside for loop");
     result ++;
-    is_for = 0;
   }
 
+
+
+  if (ast->type == NODETYPE_CONTROL_IF_ELSE) {
+    for (int i = 0; i < ast->size; i++) {
+      CheckImproperStatements(ast->children[i], is_for, incorrect_returns);
+    }
+  }
+  // call recursively on the children of ast
   for (int i = 0; i < ast->size; i++) {
     CheckImproperStatements(ast->children[i], is_for, incorrect_returns);
   }
+
+
+
+
+
 
   return result;
 }
