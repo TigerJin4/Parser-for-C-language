@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="343cb592-10f4-4d38-b540-9bf237612837" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ast.c" beforeDir="false" afterPath="$PROJECT_DIR$/ast.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/parser/sample-tests/sample.61c" beforeDir="false" afterPath="$PROJECT_DIR$/tests/parser/sample-tests/sample.61c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ast.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+            <state relative-caret-position="150">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -39,11 +42,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="1468" column="24" selection-start-line="1468" selection-start-column="24" selection-end-line="1468" selection-end-column="24" />
+            <state relative-caret-position="353">
+              <caret line="1455" column="8" selection-start-line="1455" selection-start-column="8" selection-end-line="1455" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/parser/sample-tests/sample.61c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/parser-helpers.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="53" column="10" lean-forward="true" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -85,6 +106,7 @@
       <find>string</find>
       <find>addsub</find>
       <find>token</find>
+      <find>processtoken</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,11 +118,11 @@
         <option value="$PROJECT_DIR$/ast.h" />
         <option value="$PROJECT_DIR$/ast.c" />
         <option value="$PROJECT_DIR$/parser.c" />
+        <option value="$PROJECT_DIR$/tests/parser/sample-tests/sample.61c" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="185" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="812" />
@@ -167,15 +189,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550081344176</updated>
-      <workItem from="1550081347275" duration="14899000" />
+      <workItem from="1550081347275" duration="19736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14899000" />
+    <option name="totallyTimeSpent" value="19736000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="185" y="23" width="1400" height="812" extended-state="0" />
+    <frame x="0" y="23" width="1400" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -221,11 +243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser-helpers.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ast-print.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3601" />
@@ -236,13 +253,6 @@
         <state relative-caret-position="-1200" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser-errors.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="102" column="12" lean-forward="true" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parser.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -250,17 +260,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parser-errors.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser-helpers.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="53" column="10" lean-forward="true" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ast.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+        <state relative-caret-position="150">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser-errors.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="102" column="12" lean-forward="true" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="1468" column="24" selection-start-line="1468" selection-start-column="24" selection-end-line="1468" selection-end-column="24" />
+        <state relative-caret-position="353">
+          <caret line="1455" column="8" selection-start-line="1455" selection-start-column="8" selection-end-line="1455" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/parser/sample-tests/sample.61c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -1453,7 +1453,7 @@ AST* BinaryExpr(TokenList** tokens,
                          (*tokens)->t->linenum);
       AppendAST(ast, first_ast);
       AppendAST(ast, GetNextBinaryExpr(tokens, type));
-      return ast;
+      //return ast;
     }
   }
   return first_ast;
@@ -1466,7 +1466,7 @@ AST* BinaryExpr(TokenList** tokens,
 AST* GetNextBinaryExpr(TokenList** tokens, enum BinaryExprType type) {
   switch (type) {
     case BINARY_EXPR_MULTDIV:
-      return PrefixExpr(tokens);;
+      return PrefixExpr(tokens);
     case BINARY_EXPR_ADDSUB:
       return BinaryExprMultDiv(tokens);
     case BINARY_EXPR_COMPARISON:
@@ -1483,9 +1483,10 @@ AST* GetNextBinaryExpr(TokenList** tokens, enum BinaryExprType type) {
       return BinaryExprBitwiseOr(tokens);
     case BINARY_EXPR_LOGICAL_OR:
       return BinaryExprLogicalAnd(tokens);
-    default:;
+    default:
+      return BinaryExprLogicalOr(tokens);
   }
 
   /* FIX ME */
-  return BaseExpr(tokens);
+  //return BaseExpr(tokens);
 }

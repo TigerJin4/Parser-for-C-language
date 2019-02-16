@@ -108,7 +108,7 @@ void FreeAST(AST* ast) {
       for (int i = 0; i < ast->size; i++) {
           FreeAST(ast->children[i]);
       }
-    free(ast->children);
+      free(ast->children);
       switch (ast->type) {
           case NODETYPE_ID:
               free(ast->data.identifier);
