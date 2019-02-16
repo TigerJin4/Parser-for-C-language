@@ -1453,7 +1453,13 @@ AST* BinaryExpr(TokenList** tokens,
                          (*tokens)->t->linenum);
       AppendAST(ast, first_ast);
       AppendAST(ast, GetNextBinaryExpr(tokens, type));
-      AppendAST(GetNextBinaryExpr(tokens, type), ast);
+      if (ProcessToken(tokens, possible_tokens[i])){
+        AST* nextast = MakeAST(ast_choices[i], (*tokens)->t->filename,
+                           (*tokens)->t->linenum);
+        AppendAST(nextast, ast);
+        AppendAST(nextast, GetNextBinaryExpr(tokens, type));
+        return nextast;
+      }
       return ast;
     }
   }
