@@ -1457,7 +1457,7 @@ AST* BinaryExpr(TokenList** tokens,
         AST* next_ast = BinaryExpr(tokens, possible_tokens, ast_choices, size, type);
         AppendAST(ast, next_ast);
         AppendAST(ast, next_ast->children[0])
-        next_ast->children[0] = ast
+        next_ast->children[0] = ast;
         return next_ast;
       }
   }
