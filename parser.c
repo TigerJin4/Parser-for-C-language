@@ -1454,7 +1454,7 @@ AST* BinaryExpr(TokenList** tokens,
         AST *ast = MakeAST(ast_choices[i], (*tokens)->t->filename,
                            (*tokens)->t->linenum);
         AppendAST(ast, first_ast);
-        AppendAST(ast, BinaryExpr(tokens, possible_tokens, size, type));
+        AppendAST(ast, BinaryExpr(tokens, possible_tokens, ast_choices, size, type));
         //first_ast = ast;
         printf("hi");
         return ast;
