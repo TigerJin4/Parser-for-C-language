@@ -127,8 +127,10 @@ int CheckReturn(AST* ast) {
       if (ast->children[i]->type == NODETYPE_RETURN) {
         return 0;
       }
-      if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE && ast->children[i]->size == 3) {
-        if (CheckReturn(ast->children[i]->children[1]) == 0 && CheckReturn(ast->children[i]->children[2]) == 0) {
+      if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE
+          && ast->children[i]->size == 3) {
+        if (CheckReturn(ast->children[i]->children[1]) == 0
+            && CheckReturn(ast->children[i]->children[2]) == 0) {
           return 0;
         }
       }

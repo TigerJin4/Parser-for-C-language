@@ -1462,27 +1462,6 @@ AST* BinaryExpr(TokenList** tokens,
     if (counter == 0) {
       return first_ast;
     }
-//  for (int i = 0; i < size; i++) {
-//    int counter = 0;
-//      if (ProcessToken(tokens, possible_tokens[i])) {
-//        AST *ast = MakeAST(ast_choices[i], (*tokens)->t->filename, (*tokens)->t->linenum);
-//        AppendAST(ast, first_ast);
-//        AST* next_ast = BinaryExpr(tokens, possible_tokens, ast_choices, size, type);
-//        int bl = 0;
-//        for (int j = 0; j < size; j++) {
-//          if (next_ast->type == ast_choices[j]) {
-//            bl = 1;
-//          }
-//        }
-//        if (bl) {
-//          AppendAST(ast, next_ast->children[0]);
-//          next_ast->children[0] = ast;
-//          return next_ast;
-//        } else {
-//          AppendAST(ast, next_ast);
-//          return ast;
-//        }
-//      }
   }
   return first_ast;
 }
