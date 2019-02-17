@@ -106,10 +106,11 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
 
 /* Generate a number that represents how many returns are not returned. */
 int CheckReturn(AST* ast, int* incorrect_returns){
-  if (ast->children[ast->size - 1]->type == NODETYPE_RETURN) {
-    return *incorrect_returns;
-  }
+
   for (int i = 0; i < ast->size; i++){
+     if (ast->children[i]->type == NODETYPE_RETURN) {
+       return *incorrect_returns;
+     }
      if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE) {
         for (int j = 0; j < ast->children[i]->size; j++) {
           if (ast->children[i]->children[j]->type == NODETYPE_BLOCK) {
