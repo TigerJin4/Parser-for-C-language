@@ -102,7 +102,7 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
 //    }
 //  }
 //  return *incorrect_returns;
-//}
+  }
 
 /* Generate a number that represents how many returns are not returned. */
 int CheckReturn(AST* ast, int* incorrect_returns){
