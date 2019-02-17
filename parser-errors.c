@@ -118,7 +118,7 @@ int CheckReturn(AST* ast, int* incorrect_returns){
           }
         }
     } else {
-        *incorrect_returns++;
+       (*incorrect_returns)++;
     }
   }
   return *incorrect_returns;
@@ -132,7 +132,7 @@ int CheckBreakCont(AST* ast, int is_for, int* incorrect_returns){
   }
   if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
     fprintf(stderr, "illegal break or continue point: outside for loop");
-    *incorrect_returns++;
+    (*incorrect_returns)++;
   }
   for (int i = 0; i < ast->size; i++) {
     int *counter = 0;
