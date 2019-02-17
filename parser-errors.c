@@ -92,7 +92,7 @@ int CheckErrors(AST* ast) {
 
 int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   /* YOUR CODE HERE */
-  int counter;
+  int counter = 0;
   if (ast->type == NODETYPE_ERR) {
     counter++;
   }
