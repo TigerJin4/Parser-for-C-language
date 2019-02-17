@@ -1455,7 +1455,8 @@ AST* BinaryExpr(TokenList** tokens,
         counter++;
         AST *ast = MakeAST(ast_choices[i], (*tokens)->t->filename, (*tokens)->t->linenum);
         AppendAST(ast, first_ast);
-        AppendAST(ast, GetNextBinaryExpr(tokens, type));
+        AST *next = GetNextBinaryExpr(tokens, type);
+        AppendAST(ast, next);
         first_ast = ast;
       }
     }
