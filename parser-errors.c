@@ -94,10 +94,10 @@ int CheckErrors(AST* ast) {
 int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   /* YOUR CODE HERE */
   int *counter = 0;
-  *incorrect_returns += CheckBreakCont(ast->children[i], is_for, counter);
-  if (ast->children[i]->type == NODETYPE_FUNC_DECL) {
+  *incorrect_returns += CheckBreakCont(ast, is_for, counter);
+  if (ast->type == NODETYPE_FUNC_DECL) {
     int *counter2 = 0;
-    *incorrect_returns += CheckReturn(ast->children[i], counter2);
+    *incorrect_returns += CheckReturn(ast, counter2);
   }
   return *incorrect_returns;
   }
