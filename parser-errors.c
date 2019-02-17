@@ -126,9 +126,9 @@ int CheckReturn(AST* ast, int* incorrect_returns){
 
 
 int CheckBreakCont(AST* ast, int is_for, int* incorrect_returns){
-  if (ast->type == NODETYPE_CONTROL_FOR){
-    is_for = 1;
-  }
+//  if (ast->type == NODETYPE_CONTROL_FOR){
+//    is_for = 1;
+//  }
 //  if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
 //    fprintf(stderr, "illegal break or continue point: outside for loop");
 //    (*incorrect_returns)++;
