@@ -106,7 +106,7 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
 
 /* Generate a number that represents how many returns are not returned. */
 int CheckReturn(AST* ast, int* incorrect_returns){
-  if (ast->children[size-1]->type == NODETYPE_RETURN) {
+  if (ast->children[ast->size - 1]->type == NODETYPE_RETURN) {
     return *incorrect_returns;
   }
   for (int i = 0; i < ast->size; i++){
@@ -133,11 +133,11 @@ int CheckBreakCont(AST* ast, int is_for, int* incorrect_returns){
   }
   if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
     fprintf(stderr, "illegal break or continue point: outside for loop");
-    *incorrect_returns ++;
+    *incorrect_returns++;
   }
   for (int i = 0; i < ast->size; i++) {
-    *counter = 0;
-    *incorrect_returns += CheckReturn(ast->children[i]->children[j], counter);
+    int *counter = 0;
+    *incorrect_returns += CheckReturn(ast->children[i]->children[i], counter);
   }
   return *incorrect_returns;
 }
