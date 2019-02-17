@@ -121,12 +121,13 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
 
 
 /* Generate a number that represents how many returns are not returned. */
-int CheckReturn(AST* ast){
+int CheckReturn(AST* ast) {
   if (ast->type == NODETYPE_BLOCK) {
     for (int i = 0; i < ast->size; i++) {
       if (ast->children[i]->type == NODETYPE_RETURN) {
-          return 0;
-      } else if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE && ast->children[i]->size == 3) {
+        return 0;
+      }
+      if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE && ast->children[i]->size == 3) {
         if (CheckReturn(ast->children[i]->children[1]) == 0 && CheckReturn(ast->children[i]->children[2]) == 0) {
           return 0;
         }
@@ -134,41 +135,7 @@ int CheckReturn(AST* ast){
     }
   }
   return 1;
-//  *incorrect_returns = 1;
-//  for (int i = 0; i < ast->size; i++){
-//     if (ast->children[i]->type == NODETYPE_RETURN) {
-//       return 0;
-//     }
-//     if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE) {
-//          if (ast->children[i]->children[1]->type == NODETYPE_BLOCK) {
-//            //int *counter = 0;
-//            CheckReturn(ast->children[i]->children[1], incorrect_returns);
-//          }
-//          if (ast->children[i]->children[2]->type == NODETYPE_BLOCK) {
-//            //int *counter = 0;
-//            CheckReturn(ast->children[i]->children[2], incorrect_returns);
-//          }
-//     }
-//  }
-//  return *incorrect_returns;
 }
-
-
-
-//int CheckBreakCont(AST* ast, int is_for, int* incorrect_returns){
-//  if (ast->type == NODETYPE_CONTROL_FOR){
-//    is_for = 1;
-//  }
-//  if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
-//    fprintf(stderr, "illegal break or continue point: outside for loop");
-//    (*incorrect_returns)++;
-//  }
-//  for (int i = 0; i < ast->size; i++) {
-//    int *counter = 0;
-//    *incorrect_returns += CheckBreakCont(ast->children[i], is_for, counter);
-//  }
-//  return *incorrect_returns;
-//}
 
 /*
   Generates the error message for when there are not enough tokens to continue
