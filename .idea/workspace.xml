@@ -33,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser-errors.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="112" column="6" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
+            <state relative-caret-position="173">
+              <caret line="100" column="2" selection-start-line="100" selection-start-column="2" selection-end-line="100" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -115,11 +115,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="170" />
-    <option name="y" value="23" />
-    <option name="width" value="1268" />
-    <option name="height" value="811" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -184,24 +182,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550081344176</updated>
-      <workItem from="1550081347275" duration="45343000" />
+      <workItem from="1550081347275" duration="46545000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45343000" />
+    <option name="totallyTimeSpent" value="46545000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="170" y="23" width="1268" height="811" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.276509" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24248926" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32962447" />
-      <window_info anchor="bottom" id="CMake" order="3" visible="true" weight="0.04172462" />
+      <window_info anchor="bottom" id="CMake" order="3" visible="true" weight="0.036144577" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
@@ -300,8 +298,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parser-errors.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="112" column="6" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
+        <state relative-caret-position="173">
+          <caret line="100" column="2" selection-start-line="100" selection-start-column="2" selection-end-line="100" selection-end-column="2" />
         </state>
       </provider>
     </entry>
