@@ -113,8 +113,7 @@ int CheckReturn(AST* ast, int* incorrect_returns){
      if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE) {
         for (int j = 0; j < ast->children[i]->size; j++) {
           if (ast->children[i]->children[j]->type == NODETYPE_BLOCK) {
-            int *counter;
-            *counter = 0;
+            int *counter = 0;
             *incorrect_returns += CheckReturn(ast->children[i]->children[j], counter);
           }
         }
