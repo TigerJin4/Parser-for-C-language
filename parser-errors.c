@@ -93,8 +93,8 @@ int CheckErrors(AST* ast) {
 
 int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   /* YOUR CODE HERE */
-  int *counter = 0;
-  *incorrect_returns += CheckBreakCont(ast, is_for, counter);
+//  int *counter = 0;
+//  *incorrect_returns += CheckBreakCont(ast, is_for, counter);
   if (ast->type == NODETYPE_FUNC_DECL) {
     int *counter2 = 0;
     *incorrect_returns += CheckReturn(ast, counter2);
