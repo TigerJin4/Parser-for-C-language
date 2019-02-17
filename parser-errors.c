@@ -103,7 +103,7 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   }
   for (int i = 0; i < ast->size; i++) {
     int *counter = 0;
-    *incorrect_returns += CheckBreakCont(ast->children[i], is_for, counter);
+    *incorrect_returns += CheckImproperStatements(ast->children[i], is_for, counter);
   }
 
   if (ast->type == NODETYPE_FUNC_DECL) {
