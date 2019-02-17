@@ -102,7 +102,8 @@ int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   }
   if (ast->type == NODETYPE_CONTROL_FOR){
     for (int i = 0; i < ast->size; i++) {
-      counter += CheckImproperStatements(ast->children[i], 1, incorrect_returns);
+      is_for = 1;
+      counter += CheckImproperStatements(ast->children[i], is_for, incorrect_returns);
     }
   }
   if (ast->type == NODETYPE_FUNC_DECL) {
@@ -124,7 +125,7 @@ int CheckReturn(AST* ast){
   if (ast->type == NODETYPE_BLOCK) {
     for (int i = 0; i < ast->size; i++) {
       if (ast->children[i]->type == NODETYPE_RETURN) {
-        return 0;
+          return 0;
       } else if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE && ast->children[i]->size == 3) {
         if (CheckReturn(ast->children[i]->children[1]) == 0 && CheckReturn(ast->children[i]->children[2]) == 0) {
           return 0;
