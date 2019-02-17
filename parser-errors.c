@@ -3,7 +3,7 @@
 
 // Helper Functions
 int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns);
-int CheckReturn(AST* ast, int* incorrect_returns);
+int CheckReturn(AST* ast);
 
 
 /*
