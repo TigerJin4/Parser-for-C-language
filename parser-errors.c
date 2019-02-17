@@ -136,7 +136,7 @@ int CheckBreakCont(AST* ast, int is_for, int* incorrect_returns){
   }
   for (int i = 0; i < ast->size; i++) {
     int *counter = 0;
-    *incorrect_returns += CheckReturn(ast->children[i]->children[i], counter);
+    *incorrect_returns += CheckBreakCont(ast->children[i], is_for, counter);
   }
   return *incorrect_returns;
 }
