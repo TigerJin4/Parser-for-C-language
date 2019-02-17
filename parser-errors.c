@@ -93,25 +93,27 @@ int CheckErrors(AST* ast) {
 int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   /* YOUR CODE HERE */
 
-
+  if (ast->type == NODETYPE_ERR) {
+    (*incorrect_returns)++;
+  }
   if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
     fprintf(stderr, "illegal break or continue point: outside for loop");
     (*incorrect_returns)++;
   }
   if (ast->type == NODETYPE_CONTROL_FOR){
     for (int i = 0; i < ast->size; i++) {
-      *incorrect_returns += CheckImproperStatements(ast->children[i], 1, incorrect_returns);
+      CheckImproperStatements(ast->children[i], 1, incorrect_returns);
     }
 
   }
   if (ast->type == NODETYPE_FUNC_DECL) {
-    *incorrect_returns += CheckReturn(ast, incorrect_returns);
+    CheckReturn(ast, incorrect_returns);
   }
   for (int i = 0; i < ast->size; i++) {
-    *incorrect_returns += CheckImproperStatements(ast->children[i], is_for, incorrect_returns);
-  }
-  if (ast->type == NODETYPE_ERR) {
-    (*incorrect_returns)++;
+    CheckImproperStatements(ast->children[i], is_for, incorrect_returns);
+    if (*incorrect_returns > 0){
+      fprintf(stderr, "illegal return");
+    }
   }
   return *incorrect_returns;
 }
@@ -125,8 +127,7 @@ int CheckReturn(AST* ast, int* incorrect_returns){
      if (ast->children[i]->type == NODETYPE_CONTROL_IF_ELSE) {
         for (int j = 0; j < ast->children[i]->size; j++) {
           if (ast->children[i]->children[j]->type == NODETYPE_BLOCK) {
-            int *counter = 0;
-            *incorrect_returns += CheckReturn(ast->children[i]->children[j], counter);
+            CheckReturn(ast->children[i]->children[j], incorrect_returns);
           }
         }
      }
