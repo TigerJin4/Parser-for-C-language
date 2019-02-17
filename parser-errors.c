@@ -93,7 +93,9 @@ int CheckErrors(AST* ast) {
 int CheckImproperStatements(AST* ast, int is_for, int* incorrect_returns) {
   /* YOUR CODE HERE */
 
-
+  if (ast->type == NODETYPE_ERR) {
+    (*incorrect_returns)++;
+  }
   if ((ast->type == NODETYPE_CONTINUE || ast->type == NODETYPE_BREAK) && !is_for) {
     fprintf(stderr, "illegal break or continue point: outside for loop");
     (*incorrect_returns)++;
